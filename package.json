@@ -29,7 +29,6 @@
         "nunjucks": "^3.0.1",
         "reddit-oauth-helper": "^0.3.0",
         "snoowrap": "^1.14.0",
-        "xmldom": "^0.1.27",
         "vue": "^2.1.10"
     }
 }

@@ -1,12 +1,10 @@
 'use strict';
 
 const app = require('express')();
-const http = require('http').Server(app);
 const express = require('express');
 const nunjucks = require('nunjucks');
 const snoowrap = require('snoowrap');
 const json2csv = require('json2csv');
-const fs = require('fs');
 
 const r = new snoowrap({
     userAgent: '',
