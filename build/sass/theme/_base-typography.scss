@@ -1,0 +1,52 @@
+//===========================================
+//
+// Base Typography
+//
+//===========================================
+
+// Base Typography Settings
+//===========================================
+html {
+  font-size: $baseFontSize;
+}
+
+body {
+  font-size: 100%;
+
+  @media #{$xs} {
+    font-size: 80%;
+  }
+}
+
+//Add antialiase
+h1, h2, h3, h4, h5, h6, p, li, label, address, blockquote, dt, dd, figcaption, th, td {
+  @include antialiase;
+}
+
+// Heading Styles
+//===========================================
+
+
+h1, h2, h3 {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+// Base Text Styles
+//===========================================
+a {
+  @include colorTransition;
+
+  &:focus {
+    outline: none!important;
+  }
+}
+
+p {
+  margin-bottom: 20px;
+}

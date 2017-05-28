@@ -1,0 +1,83 @@
+// Bootstrap Reset
+// ===============
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+}
+
+// Button Styles
+// =============
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+}
+
+.btn:active:focus {
+    box-shadow: none;
+}
+
+a.btn:hover {
+    text-decoration: none;
+}
+
+// Layout Styles
+// =============
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: $secondaryColor;
+    padding-top: 100px;
+}
+
+img {
+    max-width: 100%;
+}
+
+// Page Styles
+// ===========
+
+.text-input,
+.submit-button {
+    border-color: $primaryColor;
+    padding: 5px 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    &:focus {
+        outline-width: 0;
+    }
+}
+
+.text-input {
+    color: $primaryColor;
+    padding: 5px 20px;
+    color: $primaryColor;
+    background-color: transparent;
+    @include placeholderText($primaryColor);
+}
+
+.submit-button {
+    text-transform: uppercase;
+    background-color: $primaryColor;
+    color: $secondaryColor;
+    transition: 300ms;
+    &:hover {
+        background-color: lighten($primaryColor, 15%);
+    }
+}

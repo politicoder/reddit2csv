@@ -1,0 +1,35 @@
+//===========================================
+//
+// Bootstrap Variables
+//
+//===========================================
+
+// Base Typography Settings
+//===========================================
+$font-family-base: $baseFontFamily;
+$font-size-base: $baseFontSize;
+$text-color: $baseTextColor;
+$line-height-base: 1.647;
+
+$font-size-h1: calcFontSize(36px);
+$font-size-h2: calcFontSize(30px);
+$font-size-h3: calcFontSize(24px);
+$font-size-h4: calcFontSize(18px);
+$font-size-h5: calcFontSize(14px);
+$font-size-h6: calcFontSize(12px);
+
+$headings-font-family: $headingsFont;
+$headings-font-weight: $headingsWeight;
+$headings-line-height: $headingsLineHeight;
+$headings-color: $headingsColor;
+
+$link-color: $linkColor;
+$link-hover-color: $linkHoverColor;
+$link-hover-decoration: none;
+
+//Glyphicons
+$icon-font-path: "#{$fontsFolder}/bootstrap";
+
+// Navbar responsive breakpoint
+//===========================================
+//$grid-float-breakpoint:

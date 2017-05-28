@@ -1,0 +1,44 @@
+//===========================================
+//
+// Content Typography
+//
+//===========================================
+
+// Text Styles
+//===========================================
+blockquote {
+  padding: 25px 0 25px 45px;
+  border: none;
+  font-size: inherit;
+  font-style: italic;
+
+    small,
+    footer {
+      font-size: inherit;
+      font-style: normal;
+      font-weight: bold;
+      text-align: right;
+    }
+}
+
+// Table Styles
+//===========================================
+// Firefox bug fix
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
+// Responsive Styles
+//===========================================
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+embed,
+iframe,
+object,
+video {
+  max-width: 100%;
+}

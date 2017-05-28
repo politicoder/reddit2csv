@@ -1,0 +1,58 @@
+//===========================================
+//
+// Theme Variables
+//
+//===========================================
+
+// Environment Variables
+//===========================================
+$img-folder: "../images";
+$fontsFolder: "../fonts";
+
+// Responsive Breakpoints
+//===========================================
+$xs: "only screen and (max-width: 767px)";
+$not-xs: "only screen and (min-width: 768px)";
+$xs-sm: "only screen and (max-width: 991px)";
+$xs-md: "only screen and (max-width: 1199px)";
+
+$sm: "only screen and (min-width: 768px) and (max-width: 991px)";
+$sm-md: "only screen and (min-width: 768px) and (max-width: 1199px)";
+
+$md: "only screen and (min-width: 992px) and (max-width: 1199px)";
+$md-lg: "only screen and (min-width: 992px)";
+
+$lg: "only screen and (min-width: 1200px)";
+
+$xl: "only screen and (min-width: 1400px)";
+
+$not-lg: "only screen and (max-width: 1199px)";
+
+
+// Site Colors
+//===========================================
+$primaryColor: #a02d00;
+$secondaryColor: #ffe38e;
+
+// Typography Variables
+//===========================================
+$baseTextColor: #a02d00;
+$baseFontFamily: 'Raleway', sans-serif;
+$baseFontSize: 20px;
+
+$headingsFont: 'Barrio', cursive;
+$headingsWeight: 800;
+$headingsLineHeight: 1.1;
+$headingsColor: #a02d00;
+
+$sansSerif: $baseFontFamily;
+
+$linkColor: #92fff6;
+$linkHoverColor: darken($linkColor, 20%);
+
+$gutter: 30px;
+
+// Site Variables
+//===========================================
+$hoverTransitionSpeed: 400ms;
+

@@ -1,0 +1,138 @@
+//===========================================
+//
+// Site Mixins
+//
+//===========================================
+
+// Adds antialiase to text
+@mixin antialiase {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+
+// Base text style (<p> style)
+@mixin base-text-style{
+  font-family: $baseFontFamily;
+  font-size: 1em;
+  color: $baseTextColor;
+}
+
+// Shorthand mixin for text styles and converts px to em
+@mixin font($family, $size: default, $weight: regular, $style: normal, $convert: true) {
+
+  @if $family == "proxima" {font-family: "proxima-nova",sans-serif;}
+  @if $family == "montserrat" {font-family: 'Montserrat', sans-serif;}
+
+  @if $weight == "light" {font-weight: 300;}
+  @if $weight == "regular" {font-weight: 400;}
+  @if $weight == "medium" {font-weight: 500;}
+  @if $weight == "semibold" {font-weight: 600;}
+  @if $weight == "bold" {font-weight: 700;}
+  @if $weight == "extrabold" {font-weight: 800;}
+  @if $weight == "ultra" {font-weight: 900;}
+
+  //Check if font size is included
+  @if $size != "default" {
+
+    //If font size is included check option to convert font to ems
+    @if $convert == true {
+      font-size: #{($size/$baseFontSize) + 0em};
+    } @else {
+      font-size: $size;
+    }
+  }
+
+  font-style: #{$style};
+}
+
+// Converts font-size px to em
+@mixin fontSize($size, $baseline: na) {
+  @if $baseline == "na" {
+    font-size: #{($size/$baseFontSize) + 0em};
+  } @else {
+    font-size: #{($size/$baseline) + 0em};
+  }
+}
+
+// Converts px to em
+@function calcFontSize($size, $baseline: na) {
+  @if $baseline == "na" {
+    @return #{($size/$baseFontSize) + 0em};
+  } @else {
+    @return #{($size/$baseline) + 0em};
+  }
+}
+
+// Text color transition
+@mixin colorTransition {
+  transition: color $hoverTransitionSpeed;
+}
+
+// Background color transition
+@mixin bgcolorTransition {
+  transition: background-color $hoverTransitionSpeed;
+}
+
+//Striped Table
+@mixin stripedTable($headerColor, $stripeColor) {
+
+  border: none!important;
+
+    thead > tr {
+      background-color: $headerColor;
+
+        & > th {
+          border-bottom: none!important;
+          color: #fff;
+        }
+    }
+
+    tbody > tr {
+
+      &:nth-of-type(even) {
+        background-color: $stripeColor;
+      }
+
+      & > td {
+        border: none!important;
+      }
+    }
+}
+
+//Place holder color and focus color
+@mixin placeholderText($placeholderColor, $focusColor: rgba(255, 255, 255, 0)) {
+
+  &::-webkit-input-placeholder {
+     color: $placeholderColor;
+  }
+
+  &:-moz-placeholder {
+     color: $placeholderColor;
+  }
+
+  &::-moz-placeholder {
+     color: $placeholderColor;
+  }
+
+  &:-ms-input-placeholder {
+     color: $placeholderColor;
+  }
+
+  &:focus{
+    &::-webkit-input-placeholder {
+       color: $focusColor;
+    }
+
+    &:-moz-placeholder {
+       color: $focusColor;
+    }
+
+    &::-moz-placeholder {
+       color: $focusColor;
+    }
+
+    &:-ms-input-placeholder {
+       color: $focusColor;
+    }
+  }
+}
