@@ -9,10 +9,10 @@ const json2csv = require('json2csv');
 const fs = require('fs');
 
 const r = new snoowrap({
-    userAgent: 'scraper',
-    clientId: '_kw55G1ZnaMxKg',
-    clientSecret: 'Hwbsl9Cuv0LMhCZUa3L-LjiNvRk',
-    refreshToken: '465365290-2y5YyMOOpLXvDqci78m66fEUPIQ'
+    userAgent: '',
+    clientId: '',
+    clientSecret: '',
+    refreshToken: ''
 });
 
 r.config({
@@ -28,32 +28,33 @@ app.use(express.static('static'));
 
 app.get('/', (request, resolve) => {
 
+    /* No request made yet; render the page */
     if (!request.query.hasOwnProperty('threadId')) {
         resolve.render('index.njk');
         return;
     }
 
+    /* Request made; make the API call */
     r.getSubmission(request.query.threadId).expandReplies({
         limit: Infinity,
         depth: Infinity
     }).then((response) => {
 
+        /* Convert response to JSON */
         let json = thread2json(response);
 
+        /* Convert JSON to CSV */
         let csv = json2csv({
             data: json,
             fields: ['author', 'content', 'timestamp']
         });
 
-        // fs.writeFile('file.csv', csv, function(err) {
-        //     if (err) throw err;
-        //     console.log('file saved');
-        // });
-
+        /* Set browser file headers */
         resolve.set({
             "Content-Disposition": "attachment; filename=" + request.query.threadId + ".csv"
         });
 
+        /* Send CSV */
         resolve.send(csv);
 
     });
@@ -62,6 +63,13 @@ app.get('/', (request, resolve) => {
 
 app.listen(3000);
 
+
+/**
+ * Converts raw reddit API response to JSON object
+ *
+ * @param response
+ * @return object
+ */
 
 function thread2json(redditResponse) {
 
@@ -76,6 +84,12 @@ function thread2json(redditResponse) {
     return output;
 
 }
+
+
+/**
+ * Recursively adds thread responses to
+ * the given container array
+ */
 
 let dig = function(container, reply) {
 
@@ -92,6 +106,14 @@ let dig = function(container, reply) {
     }
 
 }
+
+
+/**
+ * Throws out extraneous reply info
+ *
+ * @param reddit reply
+ * @return object
+ */
 
 let reduceReply = function(reply) {
 

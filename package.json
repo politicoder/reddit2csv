@@ -25,7 +25,7 @@
         "axios": "^0.16.1",
         "express": "^4.15.3",
         "express-nunjucks": "^2.2.3",
-        "json2csv": "^3.7.4",
+        "json2csv": "^3.7.3",
         "nunjucks": "^3.0.1",
         "reddit-oauth-helper": "^0.3.0",
         "snoowrap": "^1.14.0",
